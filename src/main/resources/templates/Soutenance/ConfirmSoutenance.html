@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+layout:decorator="headF">
+<head>
+<meta charset="utf-8"/>
+<title>Gestion Soutenance</title>
+<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css"
+th:href="@{css/bootstrap.min.css}"
+/>
+
+<link rel="stylesheet" type="text/css" href="../static/css/style.css"
+th:href="@{css/style.css}"
+/>
+</head>
+<body>
+
+<div class="container"  layout:fragment="content">
+	<div class=" spacer col-md-6 col-xs-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">Confirmation </div>
+				<div class="panel-body">
+					<form th:action="@{savePlaning}" method="post">
+					<div class="form-group">
+							<label class="control-label">Nom Sujet:</label>
+							<input class = "form-control" type="text" name="nomS" readonly="true"
+							th:value="${nomS}"/>	
+							<span class="red" th:errors="${nomS}"></span>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Information sur le jury :</label>
+							<input class = "form-control" type="text" name="jury" readonly="true"
+							th:value="${jury}"/>	
+							<span class="red" th:errors="${jury}"></span>
+						</div>
+						
+						<div class="form-group">
+							<label class="control-label">Nom Du Groupe:</label>
+							<input class = "form-control" type="text" name="nomG" readonly="true"
+							th:value="${nomG}"/>	
+							<span class="red" th:errors="${nomG}"></span>
+						</div>
+						
+						<div class="form-group">
+							<label class="control-label">Membres du groupe:</label>
+							<input class = "form-control" type="text" name="membre" readonly="true"
+							th:value="${membre}"/>	
+							<span class="red" th:errors="${membre}"></span>
+						</div>
+						
+					<!--  
+						<table class="table">
+		
+		<tbody>
+						<tr>
+			<th>Membres du groupe:  </th>
+			</tr>
+			
+		<div name="nom" >
+		<tr th:value="${grp.etudGP}" th:each="e:${grp.etudGP}">
+		
+		
+		 <td th:text="${e.cin+' '+e.nom+' '+e.prenom}"></td>
+		
+				</tr>
+					</div>	
+				</tbody>
+	</table>		
+				-->			
+					
+						
+				<div class="form-group centreinteret">
+							<label class="control-label">Date du Soutenance:</label>
+							
+							<input class = "form-control" type="text" name="date" readonly="true" th:value="${date}"
+							/>	
+							
+						</div>
+					
+		 	<br/>
+
+					</form>
+				</div>
+			</div>
+	</div>
+	</div>
+</body>
+</html>

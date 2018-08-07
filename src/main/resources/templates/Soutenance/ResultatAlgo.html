@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+layout:decorator="headF">
+<head>
+<meta charset="utf-8"/>
+<title> Liste des Sujets</title>
+<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css"
+th:href="@{css/bootstrap.min.css}"
+/>
+</head>
+<body>
+<p></p>
+<div  class="container" layout:fragment="content">
+<div  class="container">
+	
+
+
+</div>
+
+
+<div class="container" >
+	<h3>Liste des sujets</h3>
+	
+	<table class="table">
+		<!--  <thead>
+			<tr>
+			<th>Info</th><th>Ci </th>
+			</tr>
+			
+		</thead>-->
+		<tbody>
+		 <tr th:each="c:${lstci}">
+		 <td><strong>Nom du cluster:</strong></td>
+	 <td class="red" th:text="${c.ci}"></td>
+	 
+		
+		
+			<tr>
+			<th>Liste des enseignants </th>
+			</tr>
+			
+		
+		<tr >
+		
+		<td >
+	 
+
+
+
+  <select name="nomC" size="5">
+                 <option th:each="e:${c.lstEnsignant}"
+                                 th:value="${e.nCin+' '+e.nom+' '+e.prenom }"
+                                 th:text="${e.nCin+' '+e.nom+' '+e.prenom }"
+                                 
+                                />
+             </select>
+          
+	 </td>	
+		
+		</tr>
+		
+		
+		<tr>
+			<th>Liste des sujet </th>
+			</tr>
+			
+		
+		<tr >
+		
+		<td >
+	 
+
+
+
+  <select name="nomC" size="5">
+                 <option th:each="su:${c.lstSujet}"
+                                 th:value="${su.idS+' '+su.titreS }"
+                                 th:text="${su.idS+' '+su.titreS }"
+                                 
+                                />
+             </select>
+          
+	 </td>	
+	 
+	 
+		
+		</tr>
+	
+		 </tr>
+		</tbody>
+	</table>
+	
+	
+	
+	
+	
+</div>
+  
+  </div>
+</body>
+</html>

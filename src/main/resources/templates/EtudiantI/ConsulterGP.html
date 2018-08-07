@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+layout:decorator="headF">
+<head>
+<meta charset="utf-8"/>
+<title> Groupe Etudiant</title>
+<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css"
+th:href="@{css/bootstrap.min.css}"
+/>
+</head>
+<body>
+<p></p>
+<div  class="container" layout:fragment="content">
+<div  class="container">
+	<form th:action="@{ConsulterGp}" method="get">
+	<input type="text" name="motCle" th:value="${motCle}"/>
+	<button class="btn btn-primary">Chercher</button>
+		
+	</form>
+
+
+</div>
+
+
+<div class="container" >
+	<h3>Liste des groupes des étudiants</h3>
+	 <table class="table">
+		<!--  <thead>
+			<tr>
+			<th>Info</th><th>Ci </th>
+			</tr>
+			
+		</thead>-->
+		<tbody>
+		 <tr th:each="g:${Listgrp}">
+		 <td><strong>Non du groupe:</strong></td>
+	 <td th:text="${g.nomG}"></td>
+	 <td><strong>Effacer:</strong></td>
+	  <td><a onclick="return confirm('êtes vous sûr de suprimer')" th:href="@{deleteGP(idG=${g.idG},page=${pagecourante},size=${size},motCle=${motCle})}">Effacer</a></td>
+		
+		
+			<tr>
+			<th class="red">Liste des étudiants: </th>
+			</tr>
+			
+		
+		<tr th:each="e:${g.etudGP}">
+		
+		<td th:text="${e.Cin}"></td>
+		 <td th:text="${e.nom}"></td>
+		<td th:text="${e.prenom}"></td>
+		
+		
+		
+		 </tr>
+		 </tr>
+		 
+		</tbody>
+	</table>
+</div>
+  <div class="container">
+  	<ul class="nav nav-pills">
+  		<li th:class="${pagecourante}==${status.index}?'active':''" th:each="page,status:${pages}">
+  		<a th:href="@{ConsulterGp(page=${status.index},size=${size},motCle=${motCle})}" th:text="${status.index}">
+  		</a>
+  		</li>
+  	</ul>
+  </div>
+  </div>
+</body>
+</html>

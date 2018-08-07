@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+layout:decorator="HeadF">
+<head>
+<meta charset="utf-8"/>
+<title>Enseignant</title>
+<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css"
+th:href="@{css/bootstrap.min.css}"
+/>
+</head>
+<body>
+	<div class="container" layout:fragment="content">
+	
+	<div class="panel panel-default">
+		<div class="panel-heading">Confirmation</div>
+			<div class="panel-body">
+			<div class="form-group">
+			<label>NCIN:</label>
+			<label th:text="${enseignant.nCin}"></label>
+			</div>
+			
+			<div class="form-group">
+			<label>nom:</label>
+			<label th:text="${enseignant.nom}"></label>
+			</div>
+			<div class="form-group">
+			<label>Prénom:</label>
+			<label th:text="${enseignant.prenom}"></label>
+			</div>
+			<div class="form-group">
+			<label>Email:</label>
+			<label th:text="${enseignant.email}"></label>
+			</div>
+			<div class="form-group">
+			<label>Téléphone:</label>
+			<label th:text="${enseignant.tel}"></label>
+			</div>
+			<div class="form-group">
+			<label>Adresse:</label>
+			<label th:text="${enseignant.adresse}"></label>
+			</div>
+			<div class="form-group">
+			<label>Département:</label>
+			<label th:text="${nomdept}"></label>
+			</div>
+			
+			</div>
+	</div>
+	
+	</div>
+</body>
+</html>

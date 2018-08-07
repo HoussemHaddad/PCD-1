@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+layout:decorator="headF">
+<head>
+<meta charset="utf-8"/>
+<title>Gestion des sujets</title>
+<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css"
+th:href="@{css/bootstrap.min.css}"
+/>
+
+<link rel="stylesheet" type="text/css" href="../static/css/style.css"
+th:href="@{css/style.css}"
+/>
+<style>
+.l {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+       -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+          transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+#panel, .flip {
+    
+    margin: auto;
+}
+#b1,#b2,#b3,#b4{
+    font-size: 10px;
+    padding: 10px;
+    text-align: center;
+   
+    color: blue;
+    
+}
+
+#panel {
+    display: none;
+}
+#panel2 {
+    display: none;
+}
+</style>
+<script>
+function myFunction() {
+    document.getElementById("panel").style.display = "block";
+	 document.getElementById("b1").style.display = 'none';
+	 document.getElementById("b2").style.display = "block";
+}
+
+
+function myFunction1() {
+    document.getElementById("panel2").style.display = "block";
+	 document.getElementById("b2").style.display = 'none';
+	 document.getElementById("b3").style.display = 'none';
+}
+function myFunction2() {
+    document.getElementById("panel2").style.display = 'none';
+	 document.getElementById("b3").style.display = 'block';
+	 document.getElementById("b2").style.display = 'block';
+}
+
+function myFunction4() {
+   document.getElementById("panel").style.display = "none";
+	 document.getElementById("b1").style.display = 'block';
+}
+</script>
+</head>
+<body>
+
+<div class="container"  layout:fragment="content">
+	<div class=" spacer">
+		<div class="panel panel-default">
+			<div class="panel-heading"> Saisie d'un Sujet</div>
+				<div class="panel-body">
+					<form th:action="@{saveSujet}" method="post">
+					
+						<div class="form-group">
+							<label class="control-label">Nom du Sujet:</label>
+							<input class = "form-control" type="text" name="titreS" 
+							th:value="${sujet.titreS}"/>	
+							<span class="red" th:errors="${sujet.titreS}"></span>
+						</div>
+						
+						<div class="form-group">
+							<label class="control-label">Liste des mots clés:( séparer par :)</label>
+							<input class = "form-control" type="text" name="motCle"  placeholder="motcle1:motcle2:motcleN"
+							th:value="${sujet.motCle}"/>	
+							<span class="red" th:errors="${sujet.motCle}"></span>
+						</div>
+				
+						<div class="form-group">
+     <label class="col-md-3 control-label">Informatin du groupe 1:</label>
+     <br/><br/><br/>
+         <div class="  col-md-5">
+         <div >
+             <select class=" l" name="gp1">
+             
+                 <option th:each="g:${listegp}"
+                                 th:value="${g}"
+                                 th:text="${g}"
+                                 
+                                />
+             </select>
+          
+        </div>
+       
+    </div>
+ </div>
+<br/><br/><br/><br/>
+
+
+
+<div id="b1">
+<p class="flip" th:onclick="|myFunction()|" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ajouter(+)</p>
+</div>
+<div id="panel" class="form-group">
+  				<div >
+     
+     <label class="col-md-3 control-label">Informatin du groupe 2:</label>
+     <br/><br/><br/>
+         <div class="col-md-5">
+         <div >
+             <select class=" l" name="gp11">
+               <option 
+                                 th:value="Null"
+                                 text="Null"
+                                 
+                                />
+                 <option th:each="g1:${listegp1}"
+                                 th:value="${g1}"
+                                 th:text="${g1}"
+                                 
+                                />
+             </select>
+          
+        </div>
+       
+    </div>
+ 
+ </div>
+  <div id="b2">
+  <p class="flip" th:onclick="|myFunction1()|" >Ajouter(+)</p>
+</div>
+<br/><br/><br/><br/>
+<div id="b3">
+  <p class="flip" th:onclick="|myFunction4()|">Effacer(-)</p>
+</div>
+</div>
+<div id="panel2">
+  			<div class="form-group">
+     <label class="col-md-3 control-label">Informatin du groupe 3:</label>
+     <br/><br/><br/>
+         <div class="col-md-5">
+         <div >
+             <select class=" l" name="gp12">
+               <option 
+                                 th:value="Null"
+                                 text="Null"
+                                 
+                                />
+                 <option th:each="g2:${listegp2}"
+                                 th:value="${g2}"
+                                 th:text="${g2}"
+                                 
+                                />
+             </select>
+          
+        </div>
+       
+    </div>
+ </div>
+  <div id="b4">
+   <p class="flip" th:onclick="|myFunction2()|">Effacer(-)</p>
+  </div>
+ </div>
+	
+	
+	
+	
+	<br/><br/><br/><br/>
+		 	
+
+
+ <center>		
+						
+						<div>
+							<button type="submit" class="btn btn-primary">Enregistrer</button>
+						</div>
+						</center>	
+					</form>
+				</div>
+			</div>
+	</div>
+	</div>
+</body>
+</html>

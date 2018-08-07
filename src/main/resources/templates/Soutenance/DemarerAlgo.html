@@ -1,0 +1,105 @@
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+layout:decorator="headF">
+<head>
+<meta charset="utf-8"/>
+<title>Gestion des sujets</title>
+<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css"
+th:href="@{css/bootstrap.min.css}"
+/>
+
+<link rel="stylesheet" type="text/css" href="../static/css/style.css"
+th:href="@{css/style.css}"
+/>
+<style>
+#panel, .flip {
+    font-size: 16px;
+    padding: 10px;
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
+    border: solid 1px #a6d8a8;
+    margin: auto;
+    
+}
+#b1,#b2,#b3,#b4{
+    font-size: 10px;
+    padding: 10px;
+    text-align: center;
+   
+    color: blue;
+    
+}
+
+#panel {
+    display: none;
+}
+#panel2 {
+    display: none;
+}
+</style>
+<script>
+function myFunction() {
+    document.getElementById("panel").style.display = "block";
+	 
+}
+
+
+
+</script>
+</head>
+<body>
+
+<div class="container"  layout:fragment="content">
+	<div class=" spacer">
+		<div class="panel panel-default">
+			<div class="panel-heading"> Démmarer la Classification des sujets</div>
+				<div class="panel-body">
+					<form th:action="@{affecter}" method="post">
+					
+						
+						
+						
+				
+					
+<br/><br/><br/><br/>
+
+
+
+<div id="b1">
+
+
+
+
+<button type="submit" class=" btn btn-primary flip" th:onclick="|myFunction()|">Démmarer</button>
+</div>
+<div id="panel">
+  <p>Chargement </p>
+  <p>
+     <br />
+    <img th:src="@{charge.gif}" width="500" height="500"/>
+    
+</p>
+ 
+</div>
+
+
+	
+	
+	
+	
+	<br/><br/><br/><br/>
+		 	
+
+
+
+					</form>
+				</div>
+			</div>
+	</div>
+	</div>
+</body>
+</html>

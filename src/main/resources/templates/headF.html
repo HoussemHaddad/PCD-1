@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="utf-8"/>
+<title>PCD</title>
+<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css"
+th:href="@{css/bootstrap.min.css}"
+/>
+
+<link rel="stylesheet" type="text/css" href="../static/css/style.css"
+th:href="@{css/style.css}"
+/>
+
+<link rel="stylesheet" th:href="@{https://use.fontawesome.com/releases/v5.0.10/css/all.css}" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous"/>
+
+
+
+
+<meta charset="utf-8"/>
+<title>PCD</title>
+</head>
+<body>
+ 	 	<header>
+ 		<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="navbar-header">
+                    <a class="navbar-brand fas fa-home" th:href="@{/}"> Acceuil </a>
+                </div>
+ 
+ 
+                <ul class="nav navbar-nav">
+                  <!--   <li><a class="dropdown-toggle"> <span class="glyphicon glyphicon-home"></span> Accueil </a></li>
+                   --> 
+                    <li class = "dropdown">
+                        <a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">
+                            <span class="fas fa-female"> </span> Gestion des Secrétaires
+                            <b class = "caret"></b>
+                        </a>
+                            <ul class = "dropdown-menu">
+                                <li><a th:href="@{FormSecretaire}"> <span class="fas fa-user-plus"></span> Ajouter une secrétaire  </a></li>
+                                <li><a th:href="@{ListeSecretaire}"> <span class="far fa-list-alt"></span> Consulter les informations des secrétaires </a></li>
+                            
+                            </ul>
+                    </li>
+ <!-- _______________________________________________________ 
+ 
+
+                    <li class = "dropdown">
+                        <a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">
+                            <span class="glyphicon glyphicon-info-sign"> </span> Gestion des Centres d'Intêtet
+                            <b class = "caret"></b>
+                        </a>
+                            <ul class = "dropdown-menu">
+                                <li><a th:href="@{FormCI}"> <span class="glyphicon glyphicon-pencil"></span> Ajouter un centre d'interet </a></li>
+                                <li><a th:href="@{ListeCI}"> <span class="glyphicon glyphicon-home"></span> Consulter les centres d'interet </a></li>
+                            
+                            </ul>
+                    </li>-->
+ <!-- _______________________________________________________ -->
+  <li class = "dropdown">
+                        <a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">
+                            <span class="fas fa-university"> </span> Gestion des Enseignants
+                            <b class = "caret"></b>
+                        </a>
+                            <ul class = "dropdown-menu">
+                                <li><a th:href="@{FormEnseignant}"> <span class="fas fa-user-plus"></span> Ajouter un  enseignant </a></li>
+                                <li><a th:href="@{ListeEnseignant}"> <span class="fas fa-list-alt"></span> Consulter les informations des Enseignants </a></li>
+                              <li class="dropdown dropdown-submenu red">
+                                <a href="#" class="dropdown-toggle red" data-toggle="dropdown">
+                                    <span class="fas fa-clipboard">
+                                    </span > Gestion des centres d'intérêt des enseignants
+                                </a>
+                                    <ul class="dropdown-menu sub-menu">
+                                        <li><a th:href="@{AjouterCi}"><span class="fas fa-plus-circle"></span>  Ajouter</a></li>
+                                            <li class="dropdown"><a th:href="@{ConsulterCI}" class="dropdown-toggle" data-toggle="dropdown">
+                                              <span class="fas fa-list"></span>  Consulter</a>  
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    
+                                    
+                                    
+                                    <li class="dropdown dropdown-submenu red">
+                                <a href="#" class=" pink dropdown-toggle red" data-toggle="dropdown">
+                                    <span class="  fas fa-copyright red">
+                                    </span > Gestion des centres d'intérêt
+                                </a>
+                                    <ul class="dropdown-menu sub-menu">
+                                        <li><a th:href="@{FormCi}"><span class="fas fa-plus-circle"></span>  Ajouter</a></li>
+                                            <li class="dropdown"><a th:href="@{ConsulterLesCI}" class="dropdown-toggle" data-toggle="dropdown">
+                                              <span class="fas fa-list"></span>  Consulter</a>  
+                                            </li>
+                                        </ul>
+                                    </li>
+                            </ul>
+                    </li>
+ <!-- _______________________________________________________ -->
+ 
+ <li class = "dropdown">
+                        <a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">
+                            <span class="fas fa-street-view"> </span> Gestion des étudiants
+                            <b class = "caret"></b>
+                        </a>
+                            <ul class = "dropdown-menu">
+                                <li><a th:href="@{FormEtudiant}"> <span class="fas fa-user-plus"></span> Ajouter un étudiant </a></li>
+                                <li><a th:href="@{ListeEtudiant}"> <span class="fas fa-bars"></span> Consulter les informations des étudiants </a></li>
+                              <li class="dropdown dropdown-submenu red">
+                                <a href="#" class="dropdown-toggle red" data-toggle="dropdown">
+                                    <span class="fab fa-gofore">
+                                    </span > Gestion des groupes
+                                </a>
+                                    <ul class="dropdown-menu sub-menu">
+                                        <li><a th:href="@{AjouterGp}"><span class="glyphicon glyphicon-pencil"></span>  Ajouter</a></li>
+                                            <li class="dropdown"><a th:href="@{ConsulterGp}" class="dropdown-toggle" data-toggle="dropdown">
+                                              <span class="fas fa-bars"></span>  Consulter</a>  
+                                            </li>
+                                        </ul>
+                                    </li>
+                            </ul>
+                    </li>
+ 
+ <!-- _______________________________________________________ -->
+ 
+ <li class = "dropdown">
+                        <a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">
+                            <span class="fas fa-book"> </span> Gestion des sujets
+                            <b class = "caret"></b>
+                        </a>
+                            <ul class = "dropdown-menu">
+                                <li><a th:href="@{FormSujet}"> <span class="glyphicon glyphicon-pencil"></span> Ajouter un sujet </a></li>
+                                <li><a th:href="@{ListeSujet}"> <span class="far fa-list-alt"></span> Consulter les informations sur les sujets </a></li>
+                           
+                            </ul>
+                    </li>
+                    
+                     <!-- _______________________________________________________ -->
+ 
+ <li class = "dropdown">
+                        <a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">
+                            <span class="fas fa-graduation-cap"> </span> Gestion des soutenances
+                            <b class = "caret"></b>
+                        </a>
+                            <ul class = "dropdown-menu">
+                                <li><a th:href="@{classer}"> <span class="fas fa-cogs"></span> Tourner la classification </a></li>
+                                <li><a th:href="@{affectation}"> <span class="fas fa-tree"></span> Consulter la Classification </a></li>
+                                 <li><a th:href="@{choisirCI}"> <span class="fas fa-hand-point-right"></span> affecter un sujet a un jury </a></li>
+                                <li><a th:href="@{ConsulterAffectation}"> <span class="fas fa-clipboard-list"></span> Consulter l'affectation des jury aux sujets</a></li>
+                                <li><a th:href="@{ListeSoutenance}"> <span class="fas fa-calendar-alt"></span> Consulter le planing des soutenances</a></li>
+                                
+                                <li ><a th:href="@{apprentissage}" class="pink "> <span class="fas fa-database"></span>  Entrer une base d'apprentissage</a></li>
+                           		  </ul>
+                    </li>
+                                  <!-- _______________________________________________________ 
+ 
+                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> <span class="glyphicon glyphicon-file">
+                        </span>  Gestion des soutenances <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown dropdown-submenu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <span class="glyphicon glyphicon-user">
+                                    </span> Fiches Individuelles
+                                </a>
+                                    <ul class="dropdown-menu sub-menu">
+                                        <li><a >Accueil Fiches Individuelles</a></li>
+                                            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                Création Fiches Individuelles</a>
+                                                <ul class="dropdown-menu">
+                                                        <li><a >Création Fiches Individuelles  </a></li>
+                                                        <li><a >Création Fiches Individuelles2 </a></li>
+                                                </ul>
+                                            </li>
+ 
+                                            <li><a >Consultation Fiches Individuelles</a></li>
+                                           
+                                            <li><a >Edition Fiches Individuelles</a></li>
+                                            <li><a>Suppression Fiches Individuelles</a></li>
+                                           
+                                        </ul>
+                                    </li></ul>
+                                    </li>
+                                    -->
+                                     <li class = " centreinteret dropdown">
+                        <a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">
+                           <div class="centreinteret"> <span  class="fas fa-user"  > </span> <div class="centreinteret" th:inline="text"> [[${#httpServletRequest.remoteUser}]] </div>
+                           </div><b class = "caret"></b>
+                        </a>
+                            <ul class = "dropdown-menu">
+                                <li><a class="dropdown-toggle" th:href="@{/login?logout}" th:inline="text" delete-cookies="JSESSIONID"> <span  class="fas fa-sign-out-alt" ></span> Déconecter </a></li>
+                                
+                            
+                            </ul>
+                    </li>
+                                    
+                                    
+                                    
+                                    
+                           <!--       
+                                    <li><a class="dropdown-toggle" th:href="@{/login?logout}" th:inline="text" delete-cookies="JSESSIONID"> <span class="glyphicon glyphicon-home" ></span> [[${#httpServletRequest.remoteUser}]] </a></li>
+                  -->    
+    
+                                    </ul>
+                                    </div>
+                                    </div>
+                                    </div>
+                                    </nav>
+                                    
+	 </header>
+	<section layout:fragment="content">
+	
+	</section>
+	<br />
+	<br />
+	<footer class="navbar-fixed-bottom">
+	<hr/>
+	<div class="container">
+	<small> Copyright @2018 </small>
+	</div>
+	</footer>
+</body>
+</html>

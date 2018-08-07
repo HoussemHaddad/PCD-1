@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+layout:decorator="headF">
+<head>
+<meta charset="utf-8"/>
+<title>Centres d'intérêt_Enseignant</title>
+<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css"
+th:href="@{css/bootstrap.min.css}"
+/>
+
+<link rel="stylesheet" type="text/css" href="../static/css/style.css"
+th:href="@{css/style.css}"
+/>
+</head>
+<body>
+
+<div class="container"  layout:fragment="content">
+	<div class=" spacer col-md-13 col-xs-12">
+		<div class="panel panel-default">
+			<div class="panel-heading "> Saisie d'un centre d'intérêt pour un enseignant</div>
+				<div class="panel-body">
+					<form th:action="@{saveCI}" method="post">
+					
+						
+				
+						<div class="form-group">
+     <label class="col-md-3 control-label">Information d'enseignant:</label>
+         <div class="col-md-5">
+         <div >
+             <select name="ens">
+                 <option th:each="e:${ListEnseignants}"
+                                 th:value="${e}"
+                                 th:text="${e}"
+                                 
+                                />
+             </select>
+          
+        </div>
+       
+    </div>
+ </div>
+<br/><br/>
+
+		<!--  	<div class="form-group">
+     <label class="col-md-3 control-label">Centre d'interet:</label>
+         <div class="col-md-5">
+         <div >
+             <select name="idCi">
+                 <option th:each="c:${ListCi}"
+                                 th:value="${c.idCi}"
+                                 th:text="${c.ci}"
+                                 
+                                />
+             </select>
+          
+        </div>
+       
+    </div>
+ </div>
+			-->	
+			
+			
+		<div class="form-group">
+     <label class="col-md-3 control-label">Centres d'intérêt:</label>
+     <div class="col-md-5">
+         <div class="scrollb" >		
+		<div  th:object="${foo}" th:each="item : ${ListCi}">
+    <input   type="checkbox" th:field="*{checkedItems}" th:value="${item.ci}" />
+    <label th:text="${item.ci}"></label>
+  </div>
+	 </div>
+       
+    </div>
+ </div>	
+		
+			
+				<br/><br/>
+					
+		 	<br/>
+ <center>		
+						
+						<div>
+							<button type="submit" class="btn btn-primary">Enregistrer</button>
+						</div>
+						</center>	
+					</form>
+				</div>
+			</div>
+	</div>
+	</div>
+</body>
+</html>

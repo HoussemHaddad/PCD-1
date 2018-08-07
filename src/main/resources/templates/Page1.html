@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+layout:decorator="HeadF">
+<head>
+<meta charset="utf-8"/>
+<title>PCD</title>
+<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css"
+th:href="@{css/bootstrap.min.css}"
+/>
+</head>
+<body>
+	<div class="container" layout:fragment="content">
+	<center>
+	<div class="panel panel-default">
+		<div class=" panel-heading"> <p class="fas fa-home">Acceuil</p></div>
+			<div class="panel-body">
+			<marquee></marquee><h2 class="red"> Bienvenue sur l'application web de Composition des jurys de soutenances</h2><marquee></marquee>
+			<h3>Université de la Manouba<br/>
+					Ecole Nationale Des Sciences De L'informatique
+			</h3>
+			<img th:src="@{ensi.png}" width="200" height="200"/>
+			
+			<hr />
+			<p class="dropdown-toggle" th:href="@{/login?logout}" th:inline="text">> <span  >Bienvenue: </span> <span class="fas fa-user" > [[${#httpServletRequest.remoteUser}]] </span></p>
+			<hr />
+			</div>
+		</div>
+		</center>
+	</div>
+	
+	
+</body>
+</html>

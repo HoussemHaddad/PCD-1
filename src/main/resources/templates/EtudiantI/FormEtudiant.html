@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+layout:decorator="headF">
+<head>
+<meta charset="utf-8"/>
+<title>Gestion des étudiants</title>
+<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css"
+th:href="@{css/bootstrap.min.css}"
+/>
+
+<link rel="stylesheet" type="text/css" href="../static/css/style.css"
+th:href="@{css/style.css}"
+/>
+</head>
+<body>
+
+<div class="container"  layout:fragment="content">
+	<div class=" spacer col-md-6 col-xs-12">
+		<div class="panel panel-default">
+			<div class="panel-heading"> Saisie d'un étudiant</div>
+				<div class="panel-body">
+					<form th:action="@{saveEtud}" method="post">
+						<div class="form-group">
+							<label class="control-label">NCIN:</label>
+							<input class = "form-control" type="text" name="Cin" 
+							th:value="${etudiant.Cin}"/>	
+							<span class="red" th:errors="${etudiant.Cin}"></span>
+						</div>
+						
+						<div class="form-group">
+							<label class="control-label">Nom:</label>
+							<input class = "form-control" type="text" name="nom" 
+							th:value="${etudiant.nom}"/>	
+							<span class="red" th:errors="${etudiant.nom}"></span>
+						</div>
+						
+						
+						<div class="form-group">
+							<label class="control-label">Prénom:</label>
+							<input class = "form-control" type="text" name="prenom" 
+							th:value="${etudiant.prenom}"/>	
+							<span class="red" th:errors="${etudiant.prenom}"></span>
+						</div>
+						
+						<div class="form-group centreinteret">
+							<label class="control-label">Date naissance:</label>
+							<select name="jr">
+                 <option th:each="jr:${jr}"
+                                 th:value="${jr}"
+                                 th:text="${jr}"
+                                 
+                                />
+             </select>
+             
+             	<select name="mois">
+                 <option th:each="m:${mois}"
+                                 th:value="${m}"
+                                 th:text="${m}"
+                                 
+                                />
+             </select>
+							<input class = " annee "  placeholder="Ex:1994" type="text" size="4" name="annee1" 
+							th:value="${etudiant.Datenaiss}"/>	
+							<span class="red" th:errors="${etudiant.Datenaiss}"></span>
+						</div>
+						
+						<div class="form-group">
+							<label class="control-label">Adresse:</label>
+							<input class = "form-control" type="text" name="adresse" 
+							th:value="${etudiant.adresse}"/>	
+							<span class="red" th:errors="${etudiant.adresse}"></span>
+						</div>
+						
+						<div class="form-group">
+							<label class="control-label">Téléphone:</label>
+							<input class = "form-control" type="text" name="tel" 
+							th:value="${etudiant.tel}"/>	
+							<span class="red" th:errors="${etudiant.tel}"></span>
+						</div>
+						
+						<div class="form-group">
+							<label class="control-label">E-mail:</label>
+							<input class = "form-control" type="text" name="email" 
+							th:value="${etudiant.email}"/>	
+							<span class="red" th:errors="${etudiant.email}"></span>
+						</div>
+						
+						
+				
+						<div class="form-group">
+     <label class="col-md-3 control-label">Classe:</label>
+         <div class="col-md-5">
+         <div >
+             <select name="nomC">
+                 <option th:each="cl:${classe}"
+                                 th:value="${cl.nomC}"
+                                 th:text="${cl.nomC}"
+                                 
+                                />
+             </select>
+          
+        </div>
+       
+    </div>
+ </div>
+ 
+ <br/>
+ <br/>
+ 		<div class="form-group">
+     <label class="col-md-3 control-label">Filière:</label>
+         <div class="col-md-5">
+         <div >
+             <select name="idf">
+                 <option th:each="f:${filiere}"
+                                 th:value="${f.idF}"
+                                 th:text="${f.nomF}"
+                                 
+                                />
+             </select>
+          
+        </div>
+       
+    </div>
+ </div>
+
+					
+		 	<br/>
+ <center>		
+						
+						<div>
+							<button type="submit" class="btn btn-primary">Enregistrer</button>
+						</div>
+						</center>	
+					</form>
+				</div>
+			</div>
+	</div>
+	</div>
+</body>
+</html>

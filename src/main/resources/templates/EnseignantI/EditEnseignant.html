@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+layout:decorator="headF">
+<head>
+<meta charset="utf-8"/>
+<title>Enseignant</title>
+<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css"
+th:href="@{css/bootstrap.min.css}"
+/>
+
+<link rel="stylesheet" type="text/css" href="../static/css/style.css"
+th:href="@{css/style.css}"
+/>
+</head>
+<body>
+
+<div class="container"  layout:fragment="content">
+	<div class=" spacer col-md-6 col-xs-12">
+		<div class="panel panel-default">
+			<div class="panel-heading"> Mise à jour d'un enseignant</div>
+				<div class="panel-body">
+					<form th:action="@{saveEns}" method="post">
+					<div class="form-group">
+							<label class="control-label">ID enseignant:</label>
+							<input class = "form-control" type="text" name="idEns" readonly="true"
+							th:value="${enseignant.idEns}"/>	
+							<span class="red" th:errors="${enseignant.idEns}"></span>
+						</div>
+						<div class="form-group">
+							<label class="control-label">NCIN:</label>
+							<input class = "form-control" type="text" name="nCin" readonly="true"
+							th:value="${enseignant.nCin}"/>	
+							<span class="red" th:errors="${enseignant.nCin}"></span>
+						</div>
+						
+						<div class="form-group">
+							<label class="control-label">Nom:</label>
+							<input class = "form-control" type="text" name="nom" 
+							th:value="${enseignant.nom}"/>	
+							<span class="red" th:errors="${enseignant.nom}"></span>
+						</div>
+						
+						
+						<div class="form-group">
+							<label class="control-label">Prénom:</label>
+							<input class = "form-control" type="text" name="prenom" 
+							th:value="${enseignant.prenom}"/>	
+							<span class="red" th:errors="${enseignant.prenom}"></span>
+						</div>
+						
+						<div class="form-group">
+							<label class="control-label">Adresse:</label>
+							<input class = "form-control" type="text" name="adresse" 
+							th:value="${enseignant.adresse}"/>	
+							<span class="red" th:errors="${enseignant.adresse}"></span>
+						</div>
+						
+						<div class="form-group">
+							<label class="control-label">Téléphone:</label>
+							<input class = "form-control" type="text" name="tel" 
+							th:value="${enseignant.tel}"/>	
+							<span class="red" th:errors="${enseignant.tel}"></span>
+						</div>
+						
+						<div class="form-group">
+							<label class="control-label">E-mail:</label>
+							<input class = "form-control" type="text" name="email" 
+							th:value="${enseignant.email}"/>	
+							<span class="red" th:errors="${enseignant.email}"></span>
+						</div>
+						
+						
+				
+						<div class="form-group">
+     <label class="col-md-3 control-label">Département:</label>
+         <div class="col-md-5">
+         <div >
+             <select name="id">
+                 <option th:each="dept:${dept}"
+                                 th:value="${dept.id}"
+                                 th:text="${dept.nom}"
+                                 
+                                />
+             </select>
+          
+        </div>
+       
+    </div>
+ </div>
+
+					
+		 	<br/>
+ <center>		
+						
+						<div>
+							<button type="submit" class="btn btn-primary">Enregistrer</button>
+						</div>
+						</center>	
+					</form>
+				</div>
+			</div>
+	</div>
+	</div>
+</body>
+</html>

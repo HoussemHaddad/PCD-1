@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+layout:decorator="headF">
+<head>
+<meta charset="utf-8"/>
+<title> Centres d'intérêt</title>
+<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css"
+th:href="@{css/bootstrap.min.css}"
+/>
+</head>
+<body>
+<p></p>
+<div  class="container" layout:fragment="content">
+<div  class="container">
+	<form th:action="@{ConsulterLesCI}" method="get">
+	<input type="text" name="motCle" th:value="${motCle}"/>
+	<button class="btn btn-primary">Chercher</button>
+		
+	</form>
+
+
+</div>
+
+
+<div class="container" >
+	<h3>Liste des centres d'intérêt</h3>
+	 <table class="table">
+		<thead>
+			<tr>
+			<th>Nom du centre d'intérêt</th></tr>
+			
+		</thead>
+		<tbody>
+		 <tr th:each="e:${ListCI}">
+	 <td th:text="${e.ci}"></td>
+
+		
+		 <td><a onclick="return confirm('êtes vous sûr de suprimer')" th:href="@{deleteCIduliste(idCi=${e.idCi},page=${pagecourante},size=${size},motCle=${motCle})}">Supprimer</a></td>
+		 
+		 </tr>
+		</tbody>
+	</table>
+</div>
+  <div class="container">
+  	<ul class="nav nav-pills">
+  		<li th:class="${pagecourante}==${status.index}?'active':''" th:each="page,status:${pages}">
+  		<a th:href="@{ConsulterLesCI(page=${status.index},size=${size},motCle=${motCle})}" th:text="${status.index}">
+  		</a>
+  		</li>
+  	</ul>
+  </div>
+  </div>
+</body>
+</html>
